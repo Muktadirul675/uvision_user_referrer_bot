@@ -14,7 +14,7 @@ def hello():
     return "Hello"
 
 @app.route('/' + TOKEN, methods=['POST'])
-def receive_update(request):
+def receive_update():
     json_str = request.get_data().decode('UTF-8')
     update = telebot.types.Update.de_json(json_str)
     bot.process_new_updates([update])
